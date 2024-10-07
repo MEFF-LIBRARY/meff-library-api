@@ -1,0 +1,19 @@
+routes:  books, authors, reviews
+file storage services: store files and get link to find files
+frontend: forms for users to fill
+database referencing
+author:{type: Types.ObjectId, ref: 'Author'}
+deleting in bulk can be handled by frontend through a process called looping
+read about sql
+specify min and max rating
+
+schema = structure
+model = connector
+
+Focus on CRUD for today
+books model = Felicity
+author model = Fred
+
+read on branching in github
+five endpoints in one router: post, get for all,  get for single/id, update for single/id, delete for single/id
+
