@@ -4,6 +4,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import authorRouter from "./routes/author.js";
 import { bookRouter } from "./routes/book.js";
+import { userRouter } from "./routes/users.js";
 
 // connect to database
 await mongoose.connect(process.env.MONGO_URI);
@@ -18,6 +19,7 @@ app.use(cors());
 // use routes
 app.use(authorRouter);
 app.use(bookRouter);
+app.use(userRouter);
 
 // listen for incoming requests
 app.listen(3001, () => {
