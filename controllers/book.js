@@ -31,7 +31,7 @@ export const getOneBook = async (req, res, next) => {
 
 export const updateBooks = async (req, res, next) => {
    try {
-     const book = await bookModels.findByIdAndUpdate(req.params.id, req.bod, {new: true})
+     const book = await bookModels.findByIdAndUpdate(req.params.id, req.body, {new: true})
      res.status(200).json('Updated')
    } catch (error) {
     next(error)
