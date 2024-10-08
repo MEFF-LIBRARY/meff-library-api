@@ -31,8 +31,8 @@ export const getOneBook = async (req, res, next) => {
 
 export const updateBooks = async (req, res, next) => {
    try {
-     const book = await bookModels.findByIdAndUpdate(req.params.id)
-     res.status(200).json(book)
+     const book = await bookModels.findByIdAndUpdate(req.params.id, req.bod, {new: true})
+     res.status(200).json('Updated')
    } catch (error) {
     next(error)
    }
@@ -41,7 +41,7 @@ export const updateBooks = async (req, res, next) => {
 export const deleteBooks = async (req, res, next) => {
    try {
      const book = await bookModels.findByIdAndDelete(req.params.id)
-     res.status(200).json('This book has been deleted', book)
+     res.status(200).json('Deleted')
    } catch (error) {
     next(error)
    }
