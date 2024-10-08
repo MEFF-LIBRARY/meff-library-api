@@ -6,7 +6,7 @@ export const postBooks = async (req, res, next) => {
 
         const books = await newBook.save()
 
-        res.status(201).json(books)
+        res.status(201).json("Book Posted")
     } catch (error) {
        next(error) 
     }
@@ -32,7 +32,7 @@ export const getOneBook = async (req, res, next) => {
 export const updateBooks = async (req, res, next) => {
    try {
      const book = await bookModels.findByIdAndUpdate(req.params.id, req.body, {new: true})
-     res.status(200).json('Updated')
+     res.status(200).json("Book Updated")
    } catch (error) {
     next(error)
    }
@@ -41,7 +41,7 @@ export const updateBooks = async (req, res, next) => {
 export const deleteBooks = async (req, res, next) => {
    try {
      const book = await bookModels.findByIdAndDelete(req.params.id)
-     res.status(200).json('Deleted')
+     res.status(200).json('Book Deleted')
    } catch (error) {
     next(error)
    }
