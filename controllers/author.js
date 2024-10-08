@@ -1,4 +1,5 @@
 import { AuthorModel } from "../models/author.js";
+import authorRouter from "../routes/author.js";
 
 export const addAuthor = async (req, res, next) => {
     // create an author
@@ -15,8 +16,8 @@ export const addAuthor = async (req, res, next) => {
 export const getAuthor = async (req, res, next) => {
     try {
         // Fetch Author from database
-        const author = await AuthorModel.find()
-        res.status(200).json(author);
+        const foundAuthor = await AuthorModel.findById(req.params.id)
+        res.status(200).json(foundAuthor);
     } catch (error) {
         next(error);
     }
@@ -36,7 +37,7 @@ export const getAuthors = async (req, res, next) => {
 export const updateAuthor = async (req, res, next) => {
     try {
         // Update Authors database
-        await AuthorModel.updateOne(req.body);
+        await AuthorModel.findByIdAndUpdate(req.params.id);
         // response
         res.status(200).json('Author updated!');
     } catch (error) {
@@ -46,7 +47,7 @@ export const updateAuthor = async (req, res, next) => {
 
 export const deleteAuthor = async (req, res, next) => {
     try {
-        await AuthorModel.deleteOne(req.body)
+        await AuthorModel.findByIdAndDelete(req.params.id)
         res.status(200).json('Author deleted!')
     } catch (error) {
         next(error);
