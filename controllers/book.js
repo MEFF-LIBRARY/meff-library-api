@@ -6,7 +6,7 @@ export const postBooks = async (req, res, next) => {
 
         const books = await newBook.save()
 
-        res.status(201).json(books)
+        res.status(201).json("Posted")
     } catch (error) {
        next(error) 
     }
@@ -32,7 +32,7 @@ export const getOneBook = async (req, res, next) => {
 export const updateBooks = async (req, res, next) => {
    try {
      const book = await bookModels.findByIdAndUpdate(req.params.id, req.body, {new: true})
-     res.status(200).json('Updated')
+     res.status(200).json(book)
    } catch (error) {
     next(error)
    }
