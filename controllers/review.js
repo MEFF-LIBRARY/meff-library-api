@@ -7,7 +7,7 @@ export const addReview = async (req, res, next) => {
         await ReviewModel.create(req.body);
         res.status(201).json('review added!');
     } catch (error) {
-        next(error)
+        next(error);
     }
 }
 
@@ -34,7 +34,7 @@ export const updateReview = async (req, res, next) => {
         await ReviewModel.findByIdAndUpdate(req.params.id, req.body, {new: true});
         res.status(201).json("review updated!")
     } catch (error) {
-        next(error)
+        next(error);
     }
 }
 
