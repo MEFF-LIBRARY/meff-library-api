@@ -3,8 +3,8 @@ import { deleteUser, getAllUsers, getUser, postUser, updateUser } from "../contr
 
 export const userRouter = Router()
 
-userRouter.post('/user', postUser)
-userRouter.get('/user', getAllUsers)
-userRouter.get('/user/:id', getUser)
-userRouter.patch('/user/:id', updateUser)
-userRouter.delete('/user/:id', deleteUser)
+userRouter.post('/users', postUser)
+userRouter.get('/users', getAllUsers)
+userRouter.get('/users/:id', getUser)
+userRouter.patch('/users/:id', updateUser)
+userRouter.delete('/users/:id', deleteUser)
