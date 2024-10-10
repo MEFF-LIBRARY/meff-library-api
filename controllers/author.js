@@ -1,12 +1,20 @@
 import { AuthorModel } from "../models/author.js";
+import { validateAddAuthor } from "../validators/authors.js";
+import { validateUpdateAuthor } from "../validators/authors.js";
+
 
 export const addAuthor = async (req, res, next) => {
-    // create an author
+    
     try {
-        console.log(req.body);
-        await AuthorModel.create(req.body);
+        // validate author
+        const {error, value} = validateAddAuthor.validate(req.body);
+        if (error) {
+            return res.status(422).json(error);
+        }
+        // create an author
+        const author = await AuthorModel.create(value);
         // Respond to request
-        res.json('Author was added!');
+        res.json(`Author, ${author.userName} was added!`);
     } catch (error) {
         next(error);
     }
@@ -35,10 +43,14 @@ export const getAuthors = async (req, res, next) => {
 
 export const updateAuthor = async (req, res, next) => {
     try {
+        const {error, value} = validateUpdateAuthor.validate(req.body);
+        if (error) {
+            return res.status(422).json(error);
+        }
         // Update Authors database
-        await AuthorModel.findByIdAndUpdate(req.params.id, req.body, {new: true});
+        const author = await AuthorModel.findByIdAndUpdate(req.params.id, value, {new: true});
         // response
-        res.status(200).json('Author updated!');
+        res.status(200).json(`Author, ${author.userName} updated!`);
     } catch (error) {
         next(error);
     }
