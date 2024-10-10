@@ -7,4 +7,4 @@ const userSchema = new Schema({
     role: {type: String, enum: ["Author", "Reader"]}
 })
 
-export const userModel = model('users', userSchema);
+export const userModel = model('user', userSchema);

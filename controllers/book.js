@@ -4,13 +4,17 @@ import Joi from "joi";
 const bookValidation = Joi.object({
    title: Joi.string().required(),
 
+   author: Joi.string().required(),
+
    datePublished: Joi.string(),
 
    description: Joi.string().required(),
 
    genre: Joi.string(),
 
-   coverPicture: Joi.string()
+   coverPicture: Joi.string(),
+
+   content: Joi.string().required()
 
 })
 
