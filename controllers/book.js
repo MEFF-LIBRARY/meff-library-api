@@ -57,7 +57,7 @@ export const postBooks = async (req, res, next) => {
 
 export const getBooks = async (req, res, next) => {
    try {
-      const book = await bookModels.find().populate('author')
+      const book = await bookModels.find(req.params).populate('author', 'name')
 
       res.status(200).json(book)
    } catch (error) {
@@ -66,7 +66,7 @@ export const getBooks = async (req, res, next) => {
 }
 export const getOneBook = async (req, res, next) => {
    try {
-      const book = await bookModels.findById(req.params.id).populate('author')
+      const book = await bookModels.findById(req.params.id).populate('author', 'name')
       res.status(200).json(book)
    } catch (error) {
       next(error)
