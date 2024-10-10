@@ -6,7 +6,7 @@ const reviewSchema = new Schema({
     name: {type: String, required: true},
     rating: {type: Number, required: true},
     comment: {type: String},
-    book: {type: Types.ObjectId, ref: "books"}
+    book: {type: Types.ObjectId, ref: "book"}
 });
 
 export const ReviewModel = model("Review", reviewSchema);
