@@ -4,11 +4,11 @@ import { Schema, model, Types} from "mongoose";
 const bookSchema = new Schema({
     title: {type: String, required: true},
     author: {type: Types.ObjectId, ref: 'Author'},
-    description: {type: String},
+    description: {type: String, required: true},
     datePublished: {type: String},
     genre: {type: String},
     coverPicture: {type: String},
-    content: {type: String}
+    content: {type: String, required: true}
 })
 
 export const bookModels = model('book', bookSchema)

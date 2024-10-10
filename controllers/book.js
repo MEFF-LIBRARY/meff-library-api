@@ -49,7 +49,7 @@ export const postBooks = async (req, res, next) => {
 
       const books = await bookModels.create(value)
 
-      res.status(201).json(`Your book: ${book.title} has been Posted`)
+      res.status(201).json(`Your book: ${books.title} has been Posted`)
    } catch (error) {
       next(error)
    }
