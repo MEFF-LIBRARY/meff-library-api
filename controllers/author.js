@@ -14,7 +14,7 @@ export const addAuthor = async (req, res, next) => {
         // create an author
         const author = await AuthorModel.create(value);
         // Respond to request
-        res.json(`Author, ${author.userName} was added!`);
+        res.json(`Author, ${author.name} was added!`);
     } catch (error) {
         next(error);
     }
