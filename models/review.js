@@ -1,6 +1,5 @@
 // importing the schema
-import { Schema, Types, model } from "mongoose";
-
+import { Schema, model, Types } from "mongoose";
 
 
 const reviewSchema = new Schema({
