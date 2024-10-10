@@ -49,7 +49,7 @@ export const postBooks = async (req, res, next) => {
 
       const books = await bookModels.create(value)
 
-      res.status(201).json("Book Posted")
+      res.status(201).json(`Your book: ${book.title} has been Posted`)
    } catch (error) {
       next(error)
    }
@@ -83,7 +83,7 @@ export const updateBooks = async (req, res, next) => {
       } 
 
       const book = await bookModels.findByIdAndUpdate(req.params.id, req.body, { new: true })
-      res.status(200).json("Book Updated")
+      res.status(200).json(`Your book: ${book.title} has been Updated!`)
    } catch (error) {
       next(error)
    }
@@ -92,7 +92,7 @@ export const updateBooks = async (req, res, next) => {
 export const deleteBooks = async (req, res, next) => {
    try {
       const book = await bookModels.findByIdAndDelete(req.params.id)
-      res.status(200).json('Book Deleted')
+      res.status(200).json(`Your book: ${book.title} has been Deleted!`)
    } catch (error) {
       next(error)
    }
